@@ -1,0 +1,151 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="jquery-3.4.1.min.js"></script>
+    <link href="../style/StyleSheet2.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body id="body">
+    <div id="body2">
+        <!--//כפתור צדדי להוראות ומשחק חדש-->
+        <div id="sideNav" onclick="openNav()">
+            <b><a href="#" id="projects"><br />ה<br />ו<br />ר<br />א<br />ו<br />ת <br /><br />ה<br />מ<br />ש<br />ח<br />ק</a></b>
+        </div>
+
+        <!--//שאלה האם להמשיך משחק קודם-->
+        <div id="askLastPlay" class="w3-modal">
+            <div class="w3-modal-content w3-animate-zoom w3-card-4">
+                <span onclick="document.getElementById('askLastPlay').style.display='none'"
+                      class="w3-button w3-display-topright">&times;</span>
+                <br /><br />
+                <div class="w3-container">
+                    <h4>?האם ברצונך להמשיך משחק קודם</h4>
+                </div>
+                <div class="clearfix contaiter">
+                    <button id="askBtn1">לא הפעם</button>
+                    <button id="askBtn2">כן</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="main" class="flex-container">
+
+            <div ‏>
+                <h1 id="reversy">REVERSY</h1><!--כותרת רברסי-->
+                <h3 id="points" class="points">!משחק לפיתוח החשיבה, ממכר ביותר</h3><!--הודעה מעל לוח המשחק-->
+                <div id="newPl"></div><!--מקום ללחצן משחק חדש-->
+            </div>
+
+            <div class="flex-container ">
+                <div class="row">
+                    <div class="col-2"></div>
+
+                    <div id="luach" class="col-8"></div><!--לוח המשחק-->
+                    <!--הודעה בסיום המשחק-->
+                    <div class="w3-container">
+                        <div id="id01" class="w3-modal w3-animate-opacity">
+                            <div class="w3-modal-content w3-card-4 endPlayAlert">
+                                <header class="w3-container w3-teal">
+                                </header>
+                                <div class="w3-container " id="win"></div>
+                                <div id="winBtns">
+                                    <button data-id="btn7" class="btn btn7 new">
+                                        <div id="underline"></div><span>שחק שוב</span>
+                                    </button>
+                                    <button data-id="btn7" class="btn btn7 close">
+                                        <div id="underline"></div><span>סיים משחק</span>
+                                    </button>
+                                </div>
+                                <footer class="w3-container w3-teal"></footer>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <br /><br /><br />
+
+        <!--פרטי המשתמש-->
+        <div id="details">
+
+            <!--מקשים לבחירת סוג המשחק-->
+            <div class="container" id="outDiv">
+                <div class="row" dir="rtl">
+                    <div id="one" class="col-5">
+                        <button class="button type2" id="onePlayer">משחק יחיד</button>
+                    </div>
+                    <div id="two" class="col-4">
+                        <button class="button type2" id="twoPlayer">משחק זוגי</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--מילוי פרטי השחקן היחיד-->
+            <div id="onePlayerDiv" dir="rtl">
+                <div class="container PlayersDetails">
+                    <div class="row">
+                        <input type="text" placeholder="הכנס שם" class="in" id="sachkanA" />
+                    </div><br /><br />
+                    <div class="row">
+                        <input id="inputNumberSize" class="in" type="number" min="4" step="2" placeholder="גודל הלוח" />
+                    </div>
+                    <br /><br />
+                    <div class="row">
+                        <button id="startPlay">go to play</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--מילוי פרטי השחקן הזוגי-->
+            <div id="twoPlayerDiv" dir="rtl">
+                <div class="container PlayersDetails">
+                    <div class="row">
+                        <input type="text" placeholder="שחקן א:" class="in" id="sachkanA" />
+                    </div><br /><br />
+                    <div class="row">
+                        <input type="text" placeholder="שחקן ב:" class="in" id="sachkanB" />
+                    </div><br /><br />
+                    <div class="row">
+                        <input id="inputNumberSize" class="in" type="number" min="4" step="2" placeholder="גודל הלוח" />
+                    </div>
+                    <br /><br />
+                    <div class="row">
+                        <button id="startPlay">go to play</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--הוראות המשחק-->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div style=" padding-right:25px; padding-left: 25px; ">
+                .מטרת המשחק: להפוך את צבעם של כלי היריב לצבע שלך, באמצעות סגירתם בכלים בצבע שלך. סגירה פירושה תחימת שורה, טור או אלכסון של ריבועים בצבע היריב משני קצותיה בריבועים מהצבע שלך. <br /> כללי המשחק: המשחק מתנהל בתורות. עמדת הפתיחה היא 4 ריבועים במרכז, 2 לכל אחד.  שחקן יכול לשחק רק אם יש באפשרותו להפוך ריבועים של היריב ואז הוא חייב לבצע מהלך שאכן יהפוך ריבועים, אחרת נגמר המשחק. <br />המשחק נגמר באחד משני מצבים: כאשר כל הלוח מתמלא או כשאין מהלכים אפשריים נוספים לאחד מהצדדים,<br /> המנצח הוא מי שהשיג יותר ריבועים.
+            </div>
+        </div>
+    </div>
+
+    <!--דף יציאה-->
+    <div id="gif" style="display:none; position:center; text-align:center; ">
+        
+        <img src="../style/AW1535255_05.gif" width="1000px" height="700"/>
+
+    </div>
+
+    <script src="JavaScript.js"></script>
+</body>
+
+</html>
